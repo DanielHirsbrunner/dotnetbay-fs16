@@ -31,6 +31,7 @@ The following products / tools are needed to contribute / fork.
 
 ## Authors
 * Michael Schnyder
+* Daniel Hirsbrunner
 
 ## License
 Licensed under the MIT License
