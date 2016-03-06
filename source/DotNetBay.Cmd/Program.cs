@@ -17,14 +17,14 @@ namespace DotNetBay.Cmd
         {
             Console.WriteLine("DotNetBay Commandline");
 
-            AuctionRunner auctionRunner = null;
+            IAuctionRunner auctionRunner = null;
 
             try
             {
                 var store = new FileSystemMainRepository("store.json");
                 var auctionService = new AuctionService(store, new SimpleMemberService(store));
 
-                auctionRunner = new AuctionRunner(store);
+                auctionRunner = AuctionRunner.GetInstance(store);
 
                 Console.WriteLine("Started AuctionRunner");
                 auctionRunner.Start();

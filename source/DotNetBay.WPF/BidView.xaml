@@ -1,0 +1,58 @@
+﻿<Window x:Class="DotNetBay.WPF.BidView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DotNetBay.WPF"
+      d:DataContext="{d:DesignInstance Type=local:BidView}"
+      mc:Ignorable="d" 
+      Title="Gebot abgeben"
+      Height="550" Width="410">
+      <!--d:DesignHeight="550" d:DesignWidth="300"-->
+    <Window.Resources>
+        <Style TargetType="Label" BasedOn="{StaticResource labelStyle}">
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="Margin" Value="5,5,5,5"/>
+        </Style>
+        <Style x:Key="TitelLabel" TargetType="{x:Type Label}" BasedOn="{StaticResource labelStyle}">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource bidViewBaseStyle}">
+            <Setter Property="MinWidth" Value="110"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="275"/>
+            <Setter Property="Margin" Value="5,5,5,5"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5,5,5,5"/>
+            <Setter Property="TextAlignment" Value="Right"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel HorizontalAlignment="Left" LastChildFill="True" VerticalAlignment="Top">
+        <Label Content="Gebot für Auktion platzieren" DockPanel.Dock="Top" HorizontalAlignment="Left"  VerticalAlignment="Top" Style="{StaticResource headerTextStyle}"/>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Click="BtnGebotAbgeben_Click">Gebot abgeben</Button>
+            <Button Click="BtnAbbrechen_Click">Abbrechen</Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Left">
+            <Label Content="{Binding Path=NewBid.Auction.Title}" Style="{StaticResource TitelLabel}"/>
+            <Image Source="{Binding Path=NewBid.Auction.Image}" Height="200" MaxWidth="390"></Image>
+            <TextBlock Text="{Binding NewBid.Auction.Description}" TextWrapping="Wrap" Width="390" Height="100"/>
+            <DockPanel>
+                <Label Content ="Auktions Ende"></Label>
+                <TextBlock Text="{Binding NewBid.Auction.EndDateTimeUtc, StringFormat=\{0:dd.MM.yy HH:mm\}}" TextAlignment="Right" DockPanel.Dock="Right"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content ="Aktueller Preis" DockPanel.Dock="Left" />
+                <TextBlock Text="{Binding NewBid.Auction.CurrentPrice}" TextAlignment="Right" DockPanel.Dock="Right" />
+            </DockPanel>
+            <DockPanel>
+                <Label Content ="Ihr Gebot" DockPanel.Dock="Left"/>
+                <TextBox Text="{Binding NewBid.Amount}"  DockPanel.Dock="Right"/>
+            </DockPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>

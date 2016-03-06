@@ -1,14 +1,17 @@
-﻿namespace DotNetBay.Core.Execution
+﻿using System;
+
+namespace DotNetBay.Core.Execution
 {
-    public interface IAuctionRunner
-    {
+    public interface IAuctionRunner: IDisposable {
         IAuctioneer Auctioneer { get; }
 
         void Start();
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "Stop", Justification = "No issue here, because only tergating C#")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords",
+            MessageId = "Stop", Justification = "No issue here, because only tergating C#")]
         void Stop();
 
         void RunOnce();
+        
     }
 }

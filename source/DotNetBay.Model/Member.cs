@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
@@ -5,10 +6,12 @@ namespace DotNetBay.Model
 {
     public class Member
     {
+
         public Member()
         {
             this.Auctions = new List<Auction>();
         }
+        
 
         public long Id { get; set; }
 

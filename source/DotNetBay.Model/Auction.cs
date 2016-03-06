@@ -27,12 +27,12 @@ namespace DotNetBay.Model
         /// <summary>
         /// Gets or sets the UTC DateTime values to avoid wrong data when serializing the values
         /// </summary>
-        public DateTime StartDateTimeUtc { get; set; }
+        public DateTime StartDateTimeUtc { get; set; } = DateTime.Today.AddDays(1);
 
         /// <summary>
         /// Gets or sets the UTC DateTime values to avoid wrong data when serializing the values
         /// </summary>
-        public DateTime EndDateTimeUtc { get; set; }
+        public DateTime EndDateTimeUtc { get; set; } = DateTime.Today.AddDays(15);
 
         /// <summary>
         /// Gets or sets the UTC DateTime values to avoid wrong data when serializing the values
