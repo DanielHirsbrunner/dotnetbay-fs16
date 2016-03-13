@@ -1,10 +1,11 @@
-﻿<Window x:Class="DotNetBay.WPF.BidView"
+﻿<Window x:Class="DotNetBay.WPF.View.BidView"
+        x:Name="bidViewDialog"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DotNetBay.WPF"
-      d:DataContext="{d:DesignInstance Type=local:BidView}"
+      xmlns:viewModel="clr-namespace:DotNetBay.WPF.ViewModel"
+      d:DataContext="{d:DesignInstance Type=viewModel:BidViewModel}"
       mc:Ignorable="d" 
       Title="Gebot abgeben"
       Height="550" Width="410">
@@ -34,8 +35,8 @@
     <DockPanel HorizontalAlignment="Left" LastChildFill="True" VerticalAlignment="Top">
         <Label Content="Gebot für Auktion platzieren" DockPanel.Dock="Top" HorizontalAlignment="Left"  VerticalAlignment="Top" Style="{StaticResource headerTextStyle}"/>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Click="BtnGebotAbgeben_Click">Gebot abgeben</Button>
-            <Button Click="BtnAbbrechen_Click">Abbrechen</Button>
+            <Button Command="{Binding SaveBidCommand}" CommandParameter="{Binding ElementName=bidViewDialog}">Gebot abgeben</Button>
+            <Button Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=bidViewDialog}">Abbrechen</Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" DockPanel.Dock="Left">
             <Label Content="{Binding Path=NewBid.Auction.Title}" Style="{StaticResource TitelLabel}"/>

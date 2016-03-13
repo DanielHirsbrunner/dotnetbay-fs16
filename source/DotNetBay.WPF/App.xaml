@@ -1,8 +1,6 @@
 ﻿<Application x:Class="DotNetBay.WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:DotNetBay.WPF"
-             StartupUri="MainWindow.xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
         <!--Alle Controls im BietDialog sollen den gleichen Abstand haben und Zentriert ausgerichtet sein-->
         <Style x:Key="bidViewBaseStyle" TargetType="Control">

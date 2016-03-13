@@ -13,6 +13,8 @@ using DotNetBay.Core;
 using DotNetBay.Core.Execution;
 using DotNetBay.Data.FileStorage;
 using DotNetBay.Model;
+using DotNetBay.WPF.View;
+using DotNetBay.WPF.ViewModel;
 
 namespace DotNetBay.WPF
 {
@@ -21,10 +23,12 @@ namespace DotNetBay.WPF
     /// </summary>
     public partial class App : Application {
 
-        public App() {
+        protected override void OnStartup(StartupEventArgs e) {
             // Demo Einträge erstellen lassen
             UIHelper.CreateDemoData();
+            // MainView laden und anzeigen
+            MainWindow view = new MainWindow { DataContext = new MainWindowViewModel() };
+            view.Show();
         }
-        
     }
 }
