@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Xml" />
@@ -70,7 +71,6 @@
     </Compile>
     <Compile Include="Converter\IsClosedToVisibilityConverter.cs" />
     <Compile Include="Converter\IsClosedToStatusConverer.cs" />
-    <Compile Include="ServiceDirectory.cs" />
     <Compile Include="UIHelper.cs" />
     <Page Include="View\SellView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -124,10 +124,6 @@
     <ProjectReference Include="..\DotNetBay.Core\DotNetBay.Core.csproj">
       <Project>{9EF46B21-B552-4CC6-A4C0-E81091A4064B}</Project>
       <Name>DotNetBay.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DotNetBay.Data.FileStorage\DotNetBay.Data.FileStorage.csproj">
-      <Project>{92942123-c7ec-4418-9b48-f5d62be7e7a3}</Project>
-      <Name>DotNetBay.Data.FileStorage</Name>
     </ProjectReference>
     <ProjectReference Include="..\DotNetBay.Interfaces\DotNetBay.Interfaces.csproj">
       <Project>{17745e6c-337c-44bd-9c50-5f1d45ceada5}</Project>

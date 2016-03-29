@@ -1,12 +1,13 @@
 ﻿using System.Windows;
-using DotNetBay.Model;
+using DotNetBay.Core;
+using DotNetBay.Model.BO;
 using MvvmBasic;
 
 namespace DotNetBay.WPF.ViewModel {
     public class BidViewModel : ViewModelBase {
         
         public BidViewModel(Auction auction) {
-            this.NewBid = new Bid() { Auction = auction, Bidder = ServiceDirectory.GetInstance.GetMemberService.GetCurrentMember() };
+            this.NewBid = new Bid() { Auction = auction, Bidder = ServiceLocator.GetInstance.GetMemberService.GetCurrentMember() };
         }
 
         #region Public Properties
@@ -26,7 +27,7 @@ namespace DotNetBay.WPF.ViewModel {
         }
 
         private void saveBid(Window window) {
-            ServiceDirectory.GetInstance.GetAuctionService.PlaceBid(this.NewBid.Auction, this.NewBid.Amount);
+            ServiceLocator.GetInstance.GetAuctionService.PlaceBid(this.NewBid.Auction, this.NewBid.Amount);
             this.closeWindow(window);
         }
 

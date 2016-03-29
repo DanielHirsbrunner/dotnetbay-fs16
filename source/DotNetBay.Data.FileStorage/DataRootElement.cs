@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using DotNetBay.Model;
+using DotNetBay.Model.BO;
 
 namespace DotNetBay.Data.FileStorage
 {

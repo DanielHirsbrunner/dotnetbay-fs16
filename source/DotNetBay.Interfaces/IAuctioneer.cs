@@ -1,7 +1,7 @@
 using System;
+using DotNetBay.Model.EventArgs;
 
-namespace DotNetBay.Core.Execution
-{
+namespace DotNetBay.Interfaces {
     public interface IAuctioneer
     {
         event EventHandler<ProcessedBidEventArgs> BidDeclined;

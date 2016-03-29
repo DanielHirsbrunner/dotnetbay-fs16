@@ -1,8 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using DotNetBay.Core.Execution;
-using DotNetBay.Model;
+using DotNetBay.Core;
+using DotNetBay.Model.BO;
+using DotNetBay.Model.EventArgs;
 using DotNetBay.WPF.View;
 using MvvmBasic;
 
@@ -11,9 +12,9 @@ namespace DotNetBay.WPF.ViewModel {
     public class MainWindowViewModel : ViewModelBase {
         
         public MainWindowViewModel() {
-            this.CurrentMember = ServiceDirectory.GetInstance.GetMemberService.GetCurrentMember();
-            ServiceDirectory.GetInstance.GetAuctionRunner.Auctioneer.AuctionStarted += this.auctioneer_AuctionStarted;
-            ServiceDirectory.GetInstance.GetAuctionRunner.Auctioneer.AuctionEnded += this.auctioneer_AuctionEnded;
+            this.CurrentMember = ServiceLocator.GetInstance.GetMemberService.GetCurrentMember();
+            ServiceLocator.GetInstance.GetAuctionRunner.Auctioneer.AuctionStarted += this.auctioneer_AuctionStarted;
+            ServiceLocator.GetInstance.GetAuctionRunner.Auctioneer.AuctionEnded += this.auctioneer_AuctionEnded;
             this.loadAuctions();
         }
 
@@ -36,7 +37,7 @@ namespace DotNetBay.WPF.ViewModel {
         }
 
         private void loadAuctions() {
-            var auctionViewModels = from auction in ServiceDirectory.GetInstance.GetAuctionService.GetAll()
+            var auctionViewModels = from auction in ServiceLocator.GetInstance.GetAuctionService.GetAll()
                                     select new AuctionViewModel(auction);
             this.Auctions = new ObservableCollection<AuctionViewModel>(auctionViewModels);
             this.RaisePropertyChanged(nameof(this.Auctions));

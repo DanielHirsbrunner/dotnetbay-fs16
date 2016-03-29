@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DotNetBay.Core;
-using DotNetBay.Core.Execution;
+﻿using DotNetBay.Core.Execution;
 using DotNetBay.Data.FileStorage;
 using DotNetBay.Interfaces;
 
-namespace DotNetBay.WPF {
-    public class ServiceDirectory {
+namespace DotNetBay.Core {
+    public class ServiceLocator {
 
-        private static ServiceDirectory instance;
+        private static ServiceLocator instance;
 
         #region Instanzvariablen
 
@@ -26,9 +20,10 @@ namespace DotNetBay.WPF {
         /// <summary>
         /// 
         /// </summary>
-        private ServiceDirectory() {
+        private ServiceLocator() {
             // Dienst zur zentralen Datenverwaltung initialisieren 
-            this.mainRepository = new FileSystemMainRepository("appdata2.json");
+            //this.mainRepository = new EFMainRepository();
+            this.mainRepository = new FileSystemMainRepository("appdata2");
             this.mainRepository.SaveChanges();
             // Dienst zum betrieben und überwachen der Auktionen initialisieren
             this.auctionRunner = AuctionRunner.GetInstance(this.mainRepository);
@@ -45,10 +40,10 @@ namespace DotNetBay.WPF {
         /// <summary>
         /// 
         /// </summary>
-        public static ServiceDirectory GetInstance {
+        public static ServiceLocator GetInstance {
             get {
-                if (ServiceDirectory.instance == null) {
-                    instance = new ServiceDirectory();
+                if (ServiceLocator.instance == null) {
+                    instance = new ServiceLocator();
                 }
                 return instance;
             }

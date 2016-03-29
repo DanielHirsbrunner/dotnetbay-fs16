@@ -1,7 +1,6 @@
 ﻿using System;
 
-namespace DotNetBay.Core.Execution
-{
+namespace DotNetBay.Interfaces {
     public interface IAuctionRunner: IDisposable {
         IAuctioneer Auctioneer { get; }
 

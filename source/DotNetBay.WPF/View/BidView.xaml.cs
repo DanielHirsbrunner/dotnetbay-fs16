@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using DotNetBay.Model;
 
 namespace DotNetBay.WPF.View {
     /// <summary>

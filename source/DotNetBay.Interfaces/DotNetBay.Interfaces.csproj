@@ -45,7 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAuctioneer.cs" />
+    <Compile Include="IAuctionRunner.cs" />
+    <Compile Include="IAuctionService.cs" />
     <Compile Include="IMainRepository.cs" />
+    <Compile Include="IMemberService.cs" />
     <Compile Include="IRepositoryFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

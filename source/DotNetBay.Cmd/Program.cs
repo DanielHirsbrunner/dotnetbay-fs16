@@ -3,26 +3,25 @@ using System.Linq;
 
 using DotNetBay.Core;
 using DotNetBay.Core.Execution;
-using DotNetBay.Data.FileStorage;
+using DotNetBay.Interfaces;
 
 namespace DotNetBay.Cmd
 {
     /// <summary>
     /// Main Entry for program
     /// </summary>
-    public static class Program
-    {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "AuctionRunner", Justification = "Reviewed. This is fine here.")]
-        public static void Main()
-        {
+    public static class Program {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming",
+            "CA2204:Literals should be spelled correctly", MessageId = "AuctionRunner",
+            Justification = "Reviewed. This is fine here.")]
+        public static void Main() {
             Console.WriteLine("DotNetBay Commandline");
 
             IAuctionRunner auctionRunner = null;
 
-            try
-            {
-                var store = new FileSystemMainRepository("store.json");
-                var auctionService = new AuctionService(store, new SimpleMemberService(store));
+            try {
+                var store = ServiceLocator.GetInstance.GetMainRepository;
+                var auctionService = ServiceLocator.GetInstance.GetAuctionService;
 
                 auctionRunner = AuctionRunner.GetInstance(store);
 
@@ -35,13 +34,9 @@ namespace DotNetBay.Cmd
 
                 Console.Write("Press enter to quit");
                 Console.ReadLine();
-            }
-            finally
-            {
-                if (auctionRunner != null)
-                {
-                    auctionRunner.Dispose();
-                }
+            } finally {
+                auctionRunner?.Dispose();
+
             }
 
             Environment.Exit(0);

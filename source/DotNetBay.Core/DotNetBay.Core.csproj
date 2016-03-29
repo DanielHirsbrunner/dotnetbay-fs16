@@ -47,20 +47,19 @@
   <ItemGroup>
     <Compile Include="MissingAuctionException.cs" />
     <Compile Include="AuctionStateException.cs" />
-    <Compile Include="Execution\AuctionEventArgs.cs" />
-    <Compile Include="Execution\IAuctioneer.cs" />
-    <Compile Include="Execution\ProcessedBidEventArgs.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IMemberService.cs" />
+    <Compile Include="ServiceLocator.cs" />
     <Compile Include="SimpleMemberService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Execution\Auctioneer.cs" />
     <Compile Include="Execution\AuctionRunner.cs" />
     <Compile Include="AuctionService.cs" />
-    <Compile Include="IAuctionService.cs" />
-    <Compile Include="Execution\IAuctionRunner.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DotNetBay.Data.FileStorage\DotNetBay.Data.FileStorage.csproj">
+      <Project>{92942123-c7ec-4418-9b48-f5d62be7e7a3}</Project>
+      <Name>DotNetBay.Data.FileStorage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DotNetBay.Interfaces\DotNetBay.Interfaces.csproj">
       <Project>{17745E6C-337C-44BD-9C50-5F1D45CEADA5}</Project>
       <Name>DotNetBay.Interfaces</Name>

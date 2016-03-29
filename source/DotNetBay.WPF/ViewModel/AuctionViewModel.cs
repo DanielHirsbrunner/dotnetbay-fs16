@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using System.Windows.Input;
-using DotNetBay.Core.Execution;
-using DotNetBay.Model;
+using DotNetBay.Core;
+using DotNetBay.Model.BO;
+using DotNetBay.Model.EventArgs;
 using DotNetBay.WPF.View;
 using MvvmBasic;
 
@@ -10,8 +11,8 @@ namespace DotNetBay.WPF.ViewModel {
         
         public AuctionViewModel(Auction auction) {
             this.CurrentAuction = auction;
-            ServiceDirectory.GetInstance.GetAuctionRunner.Auctioneer.BidAccepted += this.auctioneer_BidAccepted;
-            ServiceDirectory.GetInstance.GetAuctionRunner.Auctioneer.BidDeclined += this.auctioneer_BidDeclined;
+            ServiceLocator.GetInstance.GetAuctionRunner.Auctioneer.BidAccepted += this.auctioneer_BidAccepted;
+            ServiceLocator.GetInstance.GetAuctionRunner.Auctioneer.BidDeclined += this.auctioneer_BidDeclined;
         }
 
         #region Public Properties
@@ -39,7 +40,7 @@ namespace DotNetBay.WPF.ViewModel {
         }
 
         private void refreshCurrAuction() {
-            this.CurrentAuction = ServiceDirectory.GetInstance.GetAuctionService.GetAll().FirstOrDefault(x => x.Id == this.CurrentAuction.Id);
+            this.CurrentAuction = ServiceLocator.GetInstance.GetAuctionService.GetAll().FirstOrDefault(x => x.Id == this.CurrentAuction.Id);
             this.RaisePropertyChanged(nameof(this.CurrentAuction));
         }
 

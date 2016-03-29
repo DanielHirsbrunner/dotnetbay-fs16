@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using DotNetBay.Model.BO;
 
-using DotNetBay.Model;
-
-namespace DotNetBay.Core
+namespace DotNetBay.Interfaces
 {
     public interface IAuctionService
     {

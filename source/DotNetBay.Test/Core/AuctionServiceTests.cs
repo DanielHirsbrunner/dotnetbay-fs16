@@ -4,8 +4,7 @@ using System.Linq;
 
 using DotNetBay.Core;
 using DotNetBay.Data.FileStorage;
-using DotNetBay.Model;
-
+using DotNetBay.Model.BO;
 using NUnit.Framework;
 
 namespace DotNetBay.Test.Core

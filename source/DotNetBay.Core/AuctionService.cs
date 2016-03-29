@@ -2,7 +2,7 @@
 using System.Linq;
 
 using DotNetBay.Interfaces;
-using DotNetBay.Model;
+using DotNetBay.Model.BO;
 
 namespace DotNetBay.Core
 {

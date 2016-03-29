@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-
-using DotNetBay.Model;
+using DotNetBay.Model.BO;
 
 namespace DotNetBay.Interfaces
 {

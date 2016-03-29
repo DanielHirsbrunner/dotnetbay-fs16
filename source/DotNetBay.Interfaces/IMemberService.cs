@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using DotNetBay.Model.BO;
 
-using DotNetBay.Model;
-
-namespace DotNetBay.Core
-{
+namespace DotNetBay.Interfaces {
     public interface IMemberService
     {
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Keep this as is to mainfest the dynamic of this acess")]

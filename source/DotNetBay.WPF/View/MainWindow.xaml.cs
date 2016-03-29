@@ -1,8 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Controls.Ribbon;
-using DotNetBay.Model;
-using DotNetBay.WPF.ViewModel;
+﻿using System.Windows.Controls.Ribbon;
 
 namespace DotNetBay.WPF.View {
     /// <summary>

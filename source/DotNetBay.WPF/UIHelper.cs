@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
-using DotNetBay.Model;
+using DotNetBay.Core;
+using DotNetBay.Model.BO;
 
 namespace DotNetBay.WPF {
 
@@ -20,9 +18,9 @@ namespace DotNetBay.WPF {
         /// </summary>
         public static void CreateDemoData() {
             // der memberService administriert käufer und verkäufer
-            if (!ServiceDirectory.GetInstance.GetAuctionService.GetAll().Any()) {
-                var me = ServiceDirectory.GetInstance.GetMemberService.GetCurrentMember();
-                ServiceDirectory.GetInstance.GetAuctionService.Save(
+            if (!ServiceLocator.GetInstance.GetAuctionService.GetAll().Any()) {
+                var me = ServiceLocator.GetInstance.GetMemberService.GetCurrentMember();
+                ServiceLocator.GetInstance.GetAuctionService.Save(
                     new Auction {
                         Title = "REMINGTON 5 Schreibmaschine",
                         Description = "REMINGTON 5 Antike Schreibmaschine J 1886. Typenhelbel mit 84 Zeichen Unteraufschlag Baujahr 1186 Konsturkteur: Wyckoff Seamann & Benedict! USA",
@@ -33,7 +31,7 @@ namespace DotNetBay.WPF {
                         Seller = me,
                         Image = GetImageAsByteArray("C:\\SourceTree\\FHNW\\dnead\\source\\Images\\auktion1.jpg")
                     });
-                ServiceDirectory.GetInstance.GetAuctionService.Save(new Auction {
+                ServiceLocator.GetInstance.GetAuctionService.Save(new Auction {
                     Title = "Oldtimer Motorrad",
                     Description = "BSA A7 500 OHW TWIN, MODELL 1949 VETERANENFAHRZEUG- EINTRAG!! ",
                     StartDateTimeUtc = DateTime.UtcNow.AddDays(3),
@@ -43,7 +41,7 @@ namespace DotNetBay.WPF {
                     Seller = me,
                     Image = GetImageAsByteArray("C:\\SourceTree\\FHNW\\dnead\\source\\Images\\auktion2.jpg")
                 });
-                ServiceDirectory.GetInstance.GetAuctionService.Save(new Auction {
+                ServiceLocator.GetInstance.GetAuctionService.Save(new Auction {
                     Title = "Antike Qing Vase",
                     Description = "Diese Porzellan Deckelvase, datiert in das China der Qing Zeit (1644-1912), ist mit floralen Dekor in blauweisser Unterglasur Malerei verziert. Schauseitig ist sie mit einer Malerei von drei Gelehrten geschmückt. Die Malerei ist von sehr guter Qualität, man fühlt den Farbauftrag auf dem Porzellan. Diese Vase war wohl Gegenstand einer Auktion bei Sothebys. Die Bruchstücke und die Etiketten waren in der Vase aufbewahrt. Auf der Unterseite ist eine blaue Vierzeichenmarke Marke zu erkennen.",
                     StartDateTimeUtc = DateTime.UtcNow.AddDays(6),

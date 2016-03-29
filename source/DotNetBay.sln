@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBay.WPF", "DotNetBay.
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MvvmBasic", "MvvmBasic\MvvmBasic.shproj", "{1822C1E6-FA8C-486E-97DF-4E2285F86D31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBay.Data.EF", "DotNetBay.Data.EF\DotNetBay.Data.EF.csproj", "{B339366F-BD04-488B-983F-09D827C282BA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		MvvmBasic\MvvmBasic.projitems*{1822c1e6-fa8c-486e-97df-4e2285f86d31}*SharedItemsImports = 13
@@ -63,6 +65,10 @@ Global
 		{DB43660A-AD0B-473A-9754-B75D5BD601C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB43660A-AD0B-473A-9754-B75D5BD601C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB43660A-AD0B-473A-9754-B75D5BD601C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B339366F-BD04-488B-983F-09D827C282BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B339366F-BD04-488B-983F-09D827C282BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B339366F-BD04-488B-983F-09D827C282BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B339366F-BD04-488B-983F-09D827C282BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

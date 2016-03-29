@@ -5,8 +5,8 @@ using System.Linq;
 using DotNetBay.Core;
 using DotNetBay.Core.Execution;
 using DotNetBay.Data.FileStorage;
-using DotNetBay.Model;
-
+using DotNetBay.Model.BO;
+using DotNetBay.Model.EventArgs;
 using NUnit.Framework;
 
 namespace DotNetBay.Test.Core

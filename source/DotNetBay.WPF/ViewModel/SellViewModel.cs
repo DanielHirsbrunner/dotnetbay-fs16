@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using DotNetBay.Model;
+using DotNetBay.Core;
+using DotNetBay.Model.BO;
 using Microsoft.Win32;
 using MvvmBasic;
 
@@ -49,12 +50,12 @@ namespace DotNetBay.WPF.ViewModel {
         }
 
         private void saveAuction(Window window) {
-            var me = ServiceDirectory.GetInstance.GetMemberService.GetCurrentMember();
+            var me = ServiceLocator.GetInstance.GetMemberService.GetCurrentMember();
             this.Auction.Seller = me;
             if (Math.Abs(this.Auction.CurrentPrice) < 0.01) {
                 this.Auction.CurrentPrice = this.Auction.StartPrice;
             }
-            ServiceDirectory.GetInstance.GetAuctionService.Save(this.Auction);
+            ServiceLocator.GetInstance.GetAuctionService.Save(this.Auction);
             this.closeWindow(window);
         }
 

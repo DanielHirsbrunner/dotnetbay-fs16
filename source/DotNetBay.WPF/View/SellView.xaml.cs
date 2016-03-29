@@ -1,9 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using DotNetBay.Model;
-using Microsoft.Win32;
+﻿using System.Windows;
 
 namespace DotNetBay.WPF.View {
     /// <summary>

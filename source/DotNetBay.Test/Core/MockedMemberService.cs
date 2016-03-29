@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 using DotNetBay.Core;
 using DotNetBay.Data.FileStorage;
-using DotNetBay.Model;
+using DotNetBay.Interfaces;
+using DotNetBay.Model.BO;
 
 namespace DotNetBay.Test.Core
 {

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace MvvmBasic {
     //Event Design: http://msdn.microsoft.com/en-us/library/ms229011.aspx
