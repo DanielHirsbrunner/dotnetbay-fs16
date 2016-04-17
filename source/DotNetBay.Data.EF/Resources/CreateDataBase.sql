@@ -36,10 +36,10 @@ GO
 GO
 CREATE TABLE Auction (
 	Id INTEGER IDENTITY(1,1) PRIMARY KEY,
-	StartPrice DECIMAL(8, 2),
+	StartPrice float NOT NULL,
 	Title VARCHAR(255),
 	Description VARCHAR(MAX),
-	CurrentPrice DECIMAL(8, 2),
+	CurrentPrice float NOT NULL,
 	StartDateTimeUtc DATETIME,
 	EndDateTimeUtc DATETIME,
 	CloseDateTimeUtc DATETIME,
@@ -58,7 +58,7 @@ CREATE TABLE Bid (
 	Id INTEGER IDENTITY(1,1) PRIMARY KEY,
 	ReceivedOnUtc DATETIME,
 	TransactionId VARCHAR(255),
-	Amount DECIMAL (8, 2),
+	Amount float NOT NULL,
 	Accepted BIT,
 	AuctionId Integer,
 	BidderId Integer,

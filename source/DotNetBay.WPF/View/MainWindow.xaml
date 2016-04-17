@@ -40,8 +40,6 @@
             <!-- Start Tab -->
             <RibbonTab Header="Einstellungen" KeyTip="E" >
             </RibbonTab>
-
-
         </Ribbon>
         
         <!--SelectedItem="{Binding Path=CurrentAuction, Mode=TwoWay}"-->

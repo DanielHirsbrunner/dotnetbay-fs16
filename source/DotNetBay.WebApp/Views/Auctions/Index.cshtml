@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DotNetBay.Model.BO.Auction>
+
+@{
+    ViewBag.Title = "Auktionen";
+}
+
+<h2>Auktionen</h2>
+
+<p>
+    @Html.ActionLink("Neue Auktion erstellen", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th align="right">
+            @Html.DisplayNameFor(model => model.StartPrice)
+        </th>
+        <th align="right">
+            @Html.DisplayNameFor(model => model.CurrentPrice)
+        </th>
+        <th align="right">
+            Start / Endzeit
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td align="right" style="min-width:130px">
+            @Html.DisplayFor(modelItem => item.StartPrice, "dPreis")
+        </td>
+        <td align="right" style="min-width:130px">
+            @Html.DisplayFor(modelItem => item.CurrentPrice, "dPreis")
+        </td>
+        <td align="center" style="min-width:120px">
+            @Html.DisplayFor(modelItem => item.StartDateTimeUtc, "dDateTime")<br/>
+            bis<br/>
+            @Html.DisplayFor(modelItem => item.EndDateTimeUtc, "dDateTime")
+        </td>
+        <td>
+            @Html.ActionLink("Bearbeiten", "Edit", new { id=item.Id })<br/>
+            @Html.ActionLink("Anzeigen", "Details", new {id = item.Id})<br/>
+            @Html.ActionLink("Löschen", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

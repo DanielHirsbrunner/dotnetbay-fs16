@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DotNetBay.Core</RootNamespace>
     <AssemblyName>DotNetBay.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,6 +57,10 @@
     <Compile Include="AuctionService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DotNetBay.Data.EF\DotNetBay.Data.EF.csproj">
+      <Project>{b339366f-bd04-488b-983f-09d827c282ba}</Project>
+      <Name>DotNetBay.Data.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DotNetBay.Data.FileStorage\DotNetBay.Data.FileStorage.csproj">
       <Project>{92942123-c7ec-4418-9b48-f5d62be7e7a3}</Project>
       <Name>DotNetBay.Data.FileStorage</Name>

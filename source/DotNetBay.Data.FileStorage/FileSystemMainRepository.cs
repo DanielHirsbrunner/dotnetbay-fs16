@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Globalization;
 using System.IO;
 
@@ -14,16 +15,14 @@ namespace DotNetBay.Data.FileStorage
         private readonly string rootDirectory;
 
         private readonly string binaryDataDirectory;
-
-        public FileSystemMainRepository(string fileName)
-        {
+        
+        public FileSystemMainRepository( string fileName) {
             // It's good practice to expect either absolute or relative paths and handle both the same
             this.fullPath = Path.GetFullPath(fileName);
             this.rootDirectory = Path.GetDirectoryName(this.fullPath);
             this.binaryDataDirectory = Path.Combine(this.rootDirectory, "data");
 
-            this.jsonSerializerSettings = new JsonSerializerSettings
-            {
+            this.jsonSerializerSettings = new JsonSerializerSettings {
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects
             };
         }

@@ -47,6 +47,8 @@ namespace DotNetBay.Interfaces
 
         Bid GetBidByTransactionId(Guid transactionId);
 
+        Auction GetAuctionById(int id);
+
         Member Add(Member member);
 
         void SaveChanges();

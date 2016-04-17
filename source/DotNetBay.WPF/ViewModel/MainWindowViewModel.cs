@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
 using DotNetBay.Core;
 using DotNetBay.Model.BO;
@@ -37,9 +36,15 @@ namespace DotNetBay.WPF.ViewModel {
         }
 
         private void loadAuctions() {
-            var auctionViewModels = from auction in ServiceLocator.GetInstance.GetAuctionService.GetAll()
-                                    select new AuctionViewModel(auction);
-            this.Auctions = new ObservableCollection<AuctionViewModel>(auctionViewModels);
+            this.Auctions = new ObservableCollection<AuctionViewModel>();
+            var allAuctions = ServiceLocator.GetInstance.GetAuctionService.GetAll();
+            foreach (var auction in allAuctions) {
+                var auctionVm = new AuctionViewModel(auction);
+                this.Auctions.Add(auctionVm);
+            }
+            //var auctionViewModels = from auction in ServiceLocator.GetInstance.GetAuctionService.GetAll()
+            //                        select new AuctionViewModel(auction);
+            //this.Auctions = new ObservableCollection<AuctionViewModel>(auctionViewModels);
             this.RaisePropertyChanged(nameof(this.Auctions));
         }
 

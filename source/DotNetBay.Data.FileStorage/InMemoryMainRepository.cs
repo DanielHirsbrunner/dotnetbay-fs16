@@ -58,6 +58,10 @@ namespace DotNetBay.Data.FileStorage {
             }
         }
 
+        public Auction GetAuctionById(int id) {
+            return this.GetAuctions().FirstOrDefault(a => a.Id == id);
+        }
+
         public Member Add(Member member) {
             lock (this.syncRoot) {
                 this.EnsureCompleteLoaded();

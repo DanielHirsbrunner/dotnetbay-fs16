@@ -18,9 +18,9 @@ namespace DotNetBay.Core
             this.memberService = memberService;
         }
 
-        public Auction GetById(long id)
+        public Auction GetById(int id)
         {
-            return this.GetAll().FirstOrDefault(a => a.Id == id);
+            return this.mainRepository.GetAuctionById(id);
         }
 
         public IQueryable<Auction> GetAll()

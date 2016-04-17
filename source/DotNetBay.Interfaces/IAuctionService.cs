@@ -9,6 +9,8 @@ namespace DotNetBay.Interfaces
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Keep this as is to mainfest the dynamic of this acess")]
         IQueryable<Auction> GetAll();
 
+        Auction GetById(int id);
+
         Auction Save(Auction auction);
 
         Bid PlaceBid(Auction auction, double amount);

@@ -1,0 +1,28 @@
+﻿@model Nullable<System.DateTime>
+@if (Model.HasValue && Model.Value != DateTime.MinValue) {
+    @Html.TextBox("", String.Format("{0:dd.MM.yyyy}", Model.Value), new { @class = "textbox", @style = "width:80px; text-align: right;" })
+} else {
+    @* @Html.TextBox("", DateTime.Today.ToString("dd.MM.yyyy"), new { @class = "textbox", @style = "width:80px;" })*@
+    @Html.TextBox("", "", new { @class = "textbox", @style = "width:80px;" })
+}
+
+@{
+    string name = ViewData.TemplateInfo.HtmlFieldPrefix;
+    string id = name.Replace(".", "_");
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#@id").datepicker
+            ({
+                dateFormat: 'dd.mm.yy',
+                showStatus: false,
+                showWeeks: false,
+                highlightWeek: false,
+                numberOfMonths: 1,
+                showAnim: "scale",
+                showOptions: {
+                    origin: ["top", "left"]
+                }
+            });
+    });
+</script>

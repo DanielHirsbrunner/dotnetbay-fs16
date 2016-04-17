@@ -20,14 +20,14 @@ namespace DotNetBay.Model.BO
 
         public bool? Accepted { get; set; }
 
-        //[InverseProperty("Bids")]
-        [ForeignKey("Id")]
-        [Column("AuctionId")]
-        public virtual Auction Auction { get; set; }
+        public int AuctionId { get; set; }
 
-        //[InverseProperty("Bids")]
-        [ForeignKey("Id")]
-        [Column("BidderId")]
-        public virtual Member Bidder { get; set; }
+        [ForeignKey("AuctionId")]
+        public Auction Auction { get; set; }
+
+        public int BidderId { get; set; }
+
+        [ForeignKey("BidderId")]
+        public Member Bidder { get; set; }
     }
 }

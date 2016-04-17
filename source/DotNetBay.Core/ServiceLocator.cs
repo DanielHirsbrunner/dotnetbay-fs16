@@ -1,4 +1,5 @@
 ﻿using DotNetBay.Core.Execution;
+using DotNetBay.Data.EF;
 using DotNetBay.Data.FileStorage;
 using DotNetBay.Interfaces;
 
@@ -22,8 +23,8 @@ namespace DotNetBay.Core {
         /// </summary>
         private ServiceLocator() {
             // Dienst zur zentralen Datenverwaltung initialisieren 
-            //this.mainRepository = new EFMainRepository();
-            this.mainRepository = new FileSystemMainRepository("appdata2");
+            this.mainRepository = new EFMainRepository();
+            //this.mainRepository = new FileSystemMainRepository("C:\\Temp\\appdata2.json");
             this.mainRepository.SaveChanges();
             // Dienst zum betrieben und überwachen der Auktionen initialisieren
             this.auctionRunner = AuctionRunner.GetInstance(this.mainRepository);
@@ -55,22 +56,22 @@ namespace DotNetBay.Core {
         /// <summary>
         /// Dienst zur zentralen Datenverwaltung
         /// </summary>
-        public IMainRepository GetMainRepository => this.mainRepository;
+        public IMainRepository GetMainRepository => new EFMainRepository();//this.mainRepository;
 
         /// <summary>
         /// Dienst zum betrieben und überwachen der Auktionen
         /// </summary>
-        public IAuctionRunner GetAuctionRunner => this.auctionRunner;
+        public IAuctionRunner GetAuctionRunner => AuctionRunner.GetInstance(this.GetMainRepository);// this.auctionRunner;
 
         /// <summary>
         /// Dienst zum betrieben und überwachen der Auktionen
         /// </summary>
-        public IMemberService GetMemberService => this.memberService;
+        public IMemberService GetMemberService => new SimpleMemberService(this.GetMainRepository);//this.memberService;
 
         /// <summary>
         /// Dienst zum Verwaltung der Auktionen
         /// </summary>
-        public IAuctionService GetAuctionService => this.auctionService;
+        public IAuctionService GetAuctionService => new AuctionService(this.GetMainRepository, this.GetMemberService);//this.auctionService;
 
         #endregion
     }

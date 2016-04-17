@@ -58,6 +58,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="Services\RemoteAuctionService.cs" />
     <Compile Include="ViewModel\AuctionViewModel.cs" />
     <Compile Include="ViewModel\BidViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

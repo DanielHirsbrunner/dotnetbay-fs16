@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace DotNetBay.Model.BO
@@ -11,7 +12,6 @@ namespace DotNetBay.Model.BO
             this.Auctions = new List<Auction>();
             this.Bids = new List<Bid>();
         }
-        
 
         public int Id { get; set; }
 
@@ -23,10 +23,10 @@ namespace DotNetBay.Model.BO
 
         [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", Justification = "Keep it as is for compatibility reasons")]
         public string EMail { get; set; }
-
+        
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "Cannot reomve setter, because needs to be accessible by ORM")]
         public ICollection<Auction> Auctions { get; set; }
-
+        
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "Cannot reomve setter, because needs to be accessible by ORM")]
         public ICollection<Bid> Bids { get; set; }
     }
